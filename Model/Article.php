@@ -2,11 +2,20 @@
 
 class Article
 {
+    public const STATUS_DRAFT = "draft";
+    public const STATUS_ARCHIVED = "archived";
+    public const STATUS_PUBLISHED = "published";
+
     private int $id;
     private string $title;
     private string $content;
     private string $status;
     private \DateTime $createdAt;
+
+    public function __construct(){
+        $this->createdAt = new \DateTime('NOW');
+        $this->status = self::STATUS_DRAFT;
+    }
 
     public function getId(): int
     {
